@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UPI Link</title>
+</head>
+<body>
+
+Payment to :- (UPI ID)
+<input type="text" name="to" id="upi_to"> <br>
+
+Amount :- 
+<input type="text" name="amt" id="amt"> <br>
+
+<button id="submit">Generate Link</button>
+
+<div>
+	UPI Link :- 
+	<div id="link-text"></div>
+</div>
+
+<a id="demo-link" href="upi://pay?pa=shubh15@kotak&pn=payee&am=5&tn=test">Pay</a>
+
+<script type="text/javascript">
+
+function generate_link() {
+	// body...
+
+
+var upi = document.getElementById('upi_to').value;
+
+var amt = document.getElementById('amt').value;
+
+var txt = "upi://pay?pa="+upi+"&pn=payee&am="+amt+"&tn=test";
+
+document.getElementById('link-text').innerHTML = txt;
+
+document.getElementById("demo-link").href = txt;
+
+}
+
+document.getElementById("submit").onclick = function () {
+	generate_link();
+}
+
+
+</script>
+
+
+</body>
+</html>
